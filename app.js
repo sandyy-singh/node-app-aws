@@ -28,7 +28,7 @@ app.post("/test", async (req, res) => {
 })
 
 app.get("/", (req, res) => {
-    return res.json({ message: "hello from node-app-aws" })
+    return res.json({ message: "hello from node-app-aws1" })
 })
 
 
