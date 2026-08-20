@@ -1,0 +1,7 @@
+services:
+  node-app-aws:
+    build: ./
+    ports:
+      - "5002:5002"
+
+ 

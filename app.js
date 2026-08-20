@@ -27,6 +27,9 @@ app.post("/test", async (req, res) => {
     return res.status(200).json({ "test:": input })
 })
 
+app.get("/", (req, res) => {
+    return res.json({ message: "hello from node-app-aws" })
+})
 
 
 const PORT = process.env.PORT || 5002;
