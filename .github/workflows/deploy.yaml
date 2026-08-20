@@ -1,0 +1,27 @@
+name: Deploy to EC2
+
+"on":
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.EC2_SSH_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }} 
+          script: |
+             cd ~/node-app-aws
+             git pull origin main 
+             sudo docker compose down
+             sudo docker compose up -d --build
+          
+        
